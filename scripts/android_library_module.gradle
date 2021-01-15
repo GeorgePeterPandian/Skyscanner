@@ -1,0 +1,94 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+def addQuotes = { text -> return "\"" + text + "\"" }
+
+android {
+
+    defaultConfig {
+        vectorDrawables.useSupportLibrary = true
+        minSdkVersion rootProject.ext.versions.minSdk
+        targetSdkVersion rootProject.ext.versions.targetSdk
+        compileSdkVersion rootProject.ext.versions.compileSdk
+        buildToolsVersion rootProject.ext.versions.buildTools
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin/'
+        test.java.srcDirs += 'src/test/kotlin/'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
+    kapt {
+        generateStubs = true
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    buildTypes {
+        release
+                {
+                    debuggable false
+                    minifyEnabled true
+                    testCoverageEnabled = false
+                    proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                }
+        debug
+                {
+                    debuggable true
+                    minifyEnabled false
+                    testCoverageEnabled = false
+                }
+
+    }
+
+    flavorDimensions "environment"
+
+    productFlavors {
+        dev {
+            dimension "environment"
+            buildConfigField "String", "BASE_URL", addQuotes(rootProject.ext.url.dev.base)
+            buildConfigField "String", "IMAGES", addQuotes(rootProject.ext.url.dev.imagesHost)
+            buildConfigField "String", "ENVIRONMENT", addQuotes(rootProject.ext.url.dev.environment)
+            buildConfigField "String", "REST_API_URL", addQuotes(rootProject.ext.url.dev.base + rootProject.ext.url.dev.environment)
+        }
+        stage {
+            dimension "environment"
+            buildConfigField "String", "BASE_URL", addQuotes(rootProject.ext.url.stage.base)
+            buildConfigField "String", "IMAGES", addQuotes(rootProject.ext.url.stage.imagesHost)
+            buildConfigField "String", "ENVIRONMENT", addQuotes(rootProject.ext.url.stage.environment)
+            buildConfigField "String", "REST_API_URL", addQuotes(rootProject.ext.url.stage.base + rootProject.ext.url.stage.environment)
+        }
+        prod {
+            dimension "environment"
+            buildConfigField "String", "BASE_URL", addQuotes(rootProject.ext.url.prod.base)
+            buildConfigField "String", "IMAGES", addQuotes(rootProject.ext.url.prod.imagesHost)
+            buildConfigField "String", "ENVIRONMENT", addQuotes(rootProject.ext.url.prod.environment)
+            buildConfigField "String", "REST_API_URL", addQuotes(rootProject.ext.url.prod.base + rootProject.ext.url.prod.environment)
+        }
+    }
+
+    dependencies {
+        coreLibraryDesugaring deps.google.coreDesugar
+    }
+}

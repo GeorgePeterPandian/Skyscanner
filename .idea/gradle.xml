@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="PLATFORM" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/MyFlights" />
+            <option value="$PROJECT_DIR$/api-common" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/empty-view" />
+            <option value="$PROJECT_DIR$/error-view" />
+            <option value="$PROJECT_DIR$/image-loader" />
+            <option value="$PROJECT_DIR$/network-common" />
+            <option value="$PROJECT_DIR$/resources-common" />
+            <option value="$PROJECT_DIR$/skyscanner-data" />
+            <option value="$PROJECT_DIR$/skyscanner-domain" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

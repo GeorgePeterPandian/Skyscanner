@@ -1,0 +1,21 @@
+apply from: '../scripts/android_library_module.gradle'
+apply from: '../scripts/android_test_dependencies.gradle'
+apply from: '../scripts/test_dependencies.gradle'
+
+dependencies {
+    implementation project(':core')
+    implementation project(':api-common')
+    implementation project(':network-common')
+    implementation project(':skyscanner-domain')
+
+    kapt deps.google.dagger.daggerCompiler
+    kapt deps.google.dagger.daggerAndroidProcessor
+
+    implementation deps.google.dagger.dagger
+
+    implementation deps.thirdParty.square.moshi
+    implementation deps.thirdParty.square.retrofit.moshiConverter
+
+    implementation deps.thirdParty.reactive.rxJava
+    implementation deps.thirdParty.externalContributors.retrofit2RxJava3Adapter
+}

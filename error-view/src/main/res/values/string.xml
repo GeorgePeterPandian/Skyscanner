@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_view_retry">Retry</string>
+    <string name="error_view_title_generic">Oops</string>
+    <string name="error_view_subtitle_generic">Something went wrong</string>
+    <string name="error_view_connection_title">No connection</string>
+    <string name="error_view_connection_description">Please make sure you have an active internet connection</string>
+</resources>

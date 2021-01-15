@@ -1,0 +1,8 @@
+apply from: '../scripts/library_module.gradle'
+
+dependencies {
+    implementation deps.thirdParty.square.okhttp.okhttp
+    implementation deps.thirdParty.square.retrofit.retrofit
+    implementation deps.thirdParty.square.okhttp.loggingInterceptor
+    implementation deps.thirdParty.externalContributors.retrofit2RxJava3Adapter
+}

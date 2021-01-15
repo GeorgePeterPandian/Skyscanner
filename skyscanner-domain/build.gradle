@@ -1,0 +1,13 @@
+apply from: '../scripts/android_library_module.gradle'
+apply from: '../scripts/test_dependencies.gradle'
+
+dependencies {
+    implementation project(':core')
+
+    kapt deps.google.dagger.daggerCompiler
+    kapt deps.google.dagger.daggerAndroidProcessor
+
+    implementation deps.google.dagger.dagger
+
+    implementation deps.thirdParty.reactive.rxJava
+}

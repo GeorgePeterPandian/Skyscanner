@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Keylines-->
+    <dimen name="vertical_keyline_primary">16dp</dimen>
+    <dimen name="vertical_keyline_secondary">72dp</dimen>
+    <dimen name="vertical_keyline_secondary_short">56dp</dimen>
+    <dimen name="vertical_keyline_primary_guideline">28dp</dimen>
+
+</resources>

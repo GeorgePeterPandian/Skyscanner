@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--MiFli Dark Theme-->
+    <style name="Theme.MiFli.DayNight" parent="Theme.MiFli.Dark" />
+
+    <style name="Theme.MiFli.Dark" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!--Color-->
+        <item name="colorPrimary">@color/mifli_blue_200</item>
+        <item name="colorPrimaryVariant">@color/mifli_blue_300</item>
+        <item name="colorSecondary">@color/mifli_orange_300</item>
+        <item name="colorSecondaryVariant">@color/mifli_orange_300</item>
+
+        <item name="android:colorBackground">@color/mifli_blue_200</item>
+        <item name="colorSurface">@color/mifli_black_800</item>
+        <item name="colorPrimarySurfaceVariant">?attr/colorSurface</item>
+        <item name="colorError">@color/mifli_red_200</item>
+
+        <item name="colorOnPrimary">@color/mifli_black_900</item>
+        <item name="colorOnSecondary">@color/mifli_black_900</item>
+        <item name="colorOnBackground">@color/mifli_white_50</item>
+        <item name="colorOnSurface">@color/mifli_white_50</item>
+        <item name="colorOnError">@color/mifli_black_900</item>
+
+        <item name="scrimBackground">@color/mifli_black_900_alpha_087</item>
+        <item name="android:statusBarColor">@color/mifli_black_900_alpha_020</item>
+        <item name="elevationOverlayEnabled">true</item>
+
+        <!--Styles-->
+        <item name="bottomAppBarStyle">
+            @style/Widget.MaterialComponents.BottomAppBar.PrimarySurface
+        </item>
+        <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar.PrimarySurface
+        </item>
+        <item name="bottomSheetStyle">@style/Widget.MaterialComponents.BottomSheet.Modal</item>
+
+        <!--System/Platform attributes-->
+        <item name="android:windowBackground">@color/mifli_black_900_alpha_060</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">false</item>
+    </style>
+</resources>

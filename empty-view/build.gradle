@@ -1,0 +1,10 @@
+apply from: '../scripts/android_library_module.gradle'
+
+dependencies {
+    implementation project(':resources-common')
+
+    implementation deps.thirdParty.lottie
+    implementation deps.google.materialDesign
+    implementation deps.google.jetpack.ui.constraintLayout
+    implementation deps.google.jetpack.foundation.annotations
+}

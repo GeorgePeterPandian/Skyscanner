@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.MiFli.DayNight" parent="Theme.MiFli" />
+    <!-- Base application theme. -->
+    <style name="Theme.MiFli" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!--MiFli Light Theme-->
+        <!--Color-->
+        <item name="colorPrimary">@color/mifli_blue_700</item>
+        <item name="colorPrimaryVariant">@color/mifli_blue_800</item>
+        <item name="colorSecondary">@color/mifli_orange_500</item>
+        <item name="colorSecondaryVariant">@color/mifli_orange_400</item>
+
+        <item name="android:colorBackground">@color/mifli_blue_50</item>
+        <item name="colorSurface">@color/mifli_white_50</item>
+        <item name="colorPrimarySurfaceVariant">?attr/colorPrimaryVariant</item>
+        <item name="colorError">@color/mifli_red_400</item>
+
+        <item name="colorOnPrimary">@color/mifli_white_50</item>
+        <item name="colorOnSecondary">@color/mifli_black_900</item>
+        <item name="colorOnBackground">@color/mifli_black_900</item>
+        <item name="colorOnSurface">@color/mifli_black_900</item>
+        <item name="colorOnError">@color/mifli_black_900</item>
+
+        <item name="scrimBackground">@color/mifli_white_50_alpha_060</item>
+        <item name="android:statusBarColor">@color/mifli_blue_800</item>
+        <item name="android:navigationBarColor">@color/nav_bar</item>
+
+        <!--Shape-->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MediumComponent</item>
+
+        <!--Typography-->
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Subtitle2</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Subtitle1</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.Overline</item>
+
+        <!--Widget-->
+        <item name="materialCardViewStyle">@style/CardAppearance.CardView</item>
+
+        <item name="emphasisHighAlpha">0.87</item>
+        <item name="emphasisMediumAlpha">0.60</item>
+        <item name="emphasisDisabledAlpha">0.38</item>
+
+        <item name="motionInterpolatorPersistent">@android:interpolator/fast_out_slow_in</item>
+        <item name="motionInterpolatorIncoming">@android:interpolator/decelerate_cubic</item>
+        <item name="motionInterpolatorOutgoing">@android:interpolator/accelerate_cubic</item>
+
+        <!--Styles-->
+        <item name="bottomAppBarStyle">
+            @style/Widget.MaterialComponents.BottomAppBar.PrimarySurface
+        </item>
+        <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar.PrimarySurface
+        </item>
+        <item name="bottomSheetStyle">@style/Widget.MaterialComponents.BottomSheet.Modal</item>
+
+        <!--System/Platform attributes-->
+        <item name="android:windowBackground">@color/mifli_white_50</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">false</item>
+    </style>
+
+</resources>

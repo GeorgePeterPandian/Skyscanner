@@ -1,0 +1,7 @@
+apply from: '../scripts/library_module.gradle'
+
+dependencies {
+    implementation deps.thirdParty.json
+    implementation deps.thirdParty.square.moshi
+    implementation deps.thirdParty.square.retrofit.gsonConverter
+}

@@ -1,0 +1,12 @@
+dependencies {
+    androidTestImplementation deps.google.jetpack.test.rules
+    androidTestImplementation deps.google.jetpack.test.runner
+    androidTestImplementation deps.google.jetpack.test.extJUnit
+    androidTestImplementation deps.google.jetpack.test.archCoreTest
+    androidTestImplementation deps.google.jetpack.test.mockitoInline
+
+    androidTestImplementation deps.google.jetpack.test.junit
+    androidTestImplementation deps.google.jetpack.test.espresso.core
+    androidTestImplementation deps.google.jetpack.test.espresso.contrib
+    androidTestImplementation deps.google.jetpack.test.espresso.idlingResource
+}

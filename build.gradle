@@ -1,0 +1,165 @@
+buildscript {
+
+    ext.url = [
+            dev  : [//All point to same URL trying to show the build variants
+                    base       : "https://s3-eu-west-1.amazonaws.com",
+                    environment: "/skyscanner-prod-takehome-test/",
+                    imagesHost: "logos.skyscnr.com"
+            ],
+            stage: [//All point to same URL trying to show the build variants
+                    base       : "https://s3-eu-west-1.amazonaws.com",
+                    environment: "/skyscanner-prod-takehome-test/",
+                    imagesHost: "logos.skyscnr.com/images/airlines/small"
+            ],
+            prod : [//All point to same URL trying to show the build variants
+                    base       : "https://s3-eu-west-1.amazonaws.com",
+                    environment: "/skyscanner-prod-takehome-test/",
+                    imagesHost: "logos.skyscnr.com/images/airlines/small"
+            ]
+    ]
+
+    ext.versions = [
+            //SDK and build tools versions
+            minSdk                    : 23,
+            targetSdk                 : 30,
+            compileSdk                : 30,
+            buildTools                : '30.0.3',
+            //Android Dependency versions
+            room                      : '2.3.0-alpha04',
+            lifecycle                 : '2.2.0-rc03',
+            annotations               : '1.1.0',
+            recyclerView              : '1.1.0',
+            vectorDrawable            : '1.1.0',
+            appCompat                 : '1.2.0',
+            androidCoreKtx            : '1.0.1',
+            materialDesign            : '1.3.0-alpha04',
+            constraintLayout          : '2.0.4',
+            coreLibrary               : '1.0.9',
+            coreDesugar               : '1.0.9',
+            //Third Party Dependency versions
+            json                      : '20190722',
+            moshi                     : '1.8.0',
+            lottie                    : '3.6.0',
+            rxJava                    : '3.0.8',
+            okhttp                    : '4.9.0',
+            dagger                    : '2.25.2',
+            picasso                   : '2.71828',
+            retrofit                  : '2.7.0',
+            rxAndroid                 : '3.0.0',
+            picassoDownloader         : '1.1.0',
+            retrofit2RxJava3Adapter   : '3.0.0',
+            //Kotlin Dependency versions
+            kotlinStdlib              : '1.4.10',
+            //Test Dependency Versions
+            junit                     : '4.12',
+            mockK                     : '1.10.0',
+            mockito                   : '3.3.3',
+            espresso                  : '3.1.1',
+            archCoreTest              : '2.1.0',
+            extJunitTestRulesAndRunner: '1.1.0',
+            //Gradle Plugin Version
+            gradlePlugin              : '4.2.0-alpha15',
+    ]
+    ext.deps = [
+            kotlin    : [
+                    stdlib: [
+                            jdk8: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlinStdlib}"
+                    ]
+            ],
+            google    : [
+                    coreDesugar   : "com.android.tools:desugar_jdk_libs:${versions.coreDesugar}",
+                    jetpack       : [
+                            foundation  : [
+                                    appCompat     : "androidx.appcompat:appcompat:${versions.appCompat}",
+                                    annotations   : "androidx.annotation:annotation:${versions.annotations}",
+                                    androidCoreKtx: "androidx.core:core-ktx:${versions.androidCoreKtx}",
+                            ],
+                            architecture: [
+                                    lifecycle: [
+                                            runtime   : "androidx.lifecycle:lifecycle-runtime-ktx:${versions.lifecycle}",
+                                            viewModel : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle}",
+                                            liveData  : "androidx.lifecycle:lifecycle-livedata-ktx:${versions.lifecycle}",
+                                            extensions: "androidx.lifecycle:lifecycle-extensions:${versions.lifecycle}"
+                                    ]
+                            ],
+                            ui          : [
+                                    vectorDrawable  : "androidx.vectordrawable:vectordrawable:${versions.vectorDrawable}",
+                                    recyclerView    : "androidx.recyclerview:recyclerview:${versions.recyclerView}",
+                                    constraintLayout: "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}"
+                            ],
+                            // TODO: Improve the below structure
+                            test        : [
+                                    junit        : "junit:junit:${versions.junit}",
+                                    mockK        : "io.mockk:mockk:${versions.mockK}",
+                                    archCoreTest : "androidx.arch.core:core-testing:${versions.archCoreTest}",
+                                    rules        : "androidx.test:rules:${versions.extJunitTestRulesAndRunner}",
+                                    runner       : "androidx.test:runner:${versions.extJunitTestRulesAndRunner}",
+                                    extJUnit     : "androidx.test.ext:junit-ktx:${versions.extJunitTestRulesAndRunner}",
+                                    mockitoInline: "org.mockito:mockito-inline:${versions.mockito}",
+                                    espresso     : [
+                                            core          : "androidx.test.espresso:espresso-core:${versions.espresso}",
+                                            contrib       : "androidx.test.espresso:espresso-contrib:${versions.espresso}",
+                                            idlingResource: "androidx.test.espresso:espresso-idling-resource:${versions.espresso}"
+                                    ]
+                            ]
+                    ],
+                    materialDesign: "com.google.android.material:material:${versions.materialDesign}",
+                    dagger        : [
+                            dagger                : "com.google.dagger:dagger:${versions.dagger}",
+                            daggerCompiler        : "com.google.dagger:dagger-compiler:${versions.dagger}",
+                            daggerAndroidRuntime  : "com.google.dagger:dagger-android:${versions.dagger}",
+                            daggerAndroidSupport  : "com.google.dagger:dagger-android-support:${versions.dagger}",
+                            daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:${versions.dagger}"
+                    ]
+            ],
+            thirdParty: [
+                    externalContributors: [
+                            picasso2OkHttp3Downloader: "com.jakewharton.picasso:picasso2-okhttp3-downloader:${versions.picassoDownloader}",
+                            retrofit2RxJava3Adapter  : "com.github.akarnokd:rxjava3-retrofit-adapter:${versions.retrofit2RxJava3Adapter}"
+                    ],
+                    square              : [
+                            moshi   : "com.squareup.moshi:moshi:${versions.moshi}",
+                            picasso : "com.squareup.picasso:picasso:${versions.picasso}",
+                            okIO    : "com.squareup.okio:okio:${versions.okIO}",
+                            okhttp  : [
+                                    okhttp            : "com.squareup.okhttp3:okhttp:${versions.okhttp}",
+                                    loggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
+                            ],
+                            retrofit: [
+                                    retrofit      : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+                                    gsonConverter : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+                                    moshiConverter: "com.squareup.retrofit2:converter-moshi:${versions.retrofit}"
+                            ]
+                    ],
+                    reactive            : [
+                            rxJava   : "io.reactivex.rxjava3:rxjava:${versions.rxJava}",
+                            rxAndroid: "io.reactivex.rxjava3:rxandroid:${versions.rxAndroid}"
+                    ],
+                    json                : "org.json:json:${versions.json}",
+                    lottie              : "com.airbnb.android:lottie:${versions.lottie}",
+            ]
+    ]
+
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:${versions.gradlePlugin}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlinStdlib}"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

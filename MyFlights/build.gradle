@@ -1,0 +1,153 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
+
+def addQuotes = { text -> return "\"" + text + "\"" }
+
+android {
+
+    defaultConfig {
+        versionCode 1
+        versionName "1.0"
+        applicationId 'com.android.skyscanner.uk'
+        vectorDrawables.useSupportLibrary = true
+        minSdkVersion rootProject.ext.versions.minSdk
+        targetSdkVersion rootProject.ext.versions.targetSdk
+        compileSdkVersion rootProject.ext.versions.compileSdk
+        buildToolsVersion rootProject.ext.versions.buildTools
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin/'
+        test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
+    kapt {
+        generateStubs = true
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    buildTypes {
+        release
+                {
+                    debuggable false
+                    minifyEnabled true
+                    testCoverageEnabled = false
+                    proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                }
+        debug
+                {
+                    debuggable true
+                    minifyEnabled false
+                    testCoverageEnabled = false
+                    applicationIdSuffix = '.debug'
+                }
+    }
+
+    flavorDimensions "environment"
+
+    productFlavors {
+        dev {
+            dimension "environment"
+            versionNameSuffix = "-dev"
+            applicationIdSuffix = ".dev"
+            manifestPlaceholders = [
+                    appName: "My Flights-DEV"
+            ]
+            buildConfigField "String", "BASE_URL", addQuotes(rootProject.ext.url.dev.base)
+            buildConfigField "String", "IMAGES", addQuotes(rootProject.ext.url.dev.imagesHost)
+            buildConfigField "String", "ENVIRONMENT", addQuotes(rootProject.ext.url.dev.environment)
+            buildConfigField "String", "REST_API_URL", addQuotes(rootProject.ext.url.dev.base + rootProject.ext.url.dev.environment)
+        }
+        stage {
+            dimension "environment"
+            versionNameSuffix = "-stage"
+            applicationIdSuffix = ".stage"
+            manifestPlaceholders = [
+                    appName: "My Flights-STAGE"
+            ]
+            buildConfigField "String", "BASE_URL", addQuotes(rootProject.ext.url.stage.base)
+            buildConfigField "String", "IMAGES", addQuotes(rootProject.ext.url.stage.imagesHost)
+            buildConfigField "String", "ENVIRONMENT", addQuotes(rootProject.ext.url.stage.environment)
+            buildConfigField "String", "REST_API_URL", addQuotes(rootProject.ext.url.stage.base + rootProject.ext.url.stage.environment)
+        }
+        prod {
+            dimension "environment"
+            buildConfigField "String", "BASE_URL", addQuotes(rootProject.ext.url.prod.base)
+            buildConfigField "String", "IMAGES", addQuotes(rootProject.ext.url.prod.imagesHost)
+            buildConfigField "String", "ENVIRONMENT", addQuotes(rootProject.ext.url.prod.environment)
+            buildConfigField "String", "REST_API_URL", addQuotes(rootProject.ext.url.prod.base + rootProject.ext.url.prod.environment)
+        }
+    }
+}
+
+dependencies {
+    implementation project(':core')
+
+    implementation project(':image-loader')
+
+    implementation project(':empty-view')
+    implementation project(':error-view')
+
+    implementation project(':network-common')
+    implementation project(':resources-common')
+
+    implementation project(':skyscanner-data')
+    implementation project(':skyscanner-domain')
+
+    implementation deps.kotlin.stdlib.jdk8
+    coreLibraryDesugaring deps.google.coreDesugar
+
+    implementation deps.google.jetpack.foundation.appCompat
+    implementation deps.google.jetpack.foundation.annotations
+    implementation deps.google.jetpack.foundation.androidCoreKtx
+
+    implementation deps.google.jetpack.architecture.lifecycle.runtime
+    implementation deps.google.jetpack.architecture.lifecycle.liveData
+    implementation deps.google.jetpack.architecture.lifecycle.viewModel
+    implementation deps.google.jetpack.architecture.lifecycle.extensions
+
+    implementation deps.google.jetpack.ui.vectorDrawable
+    implementation deps.google.jetpack.ui.constraintLayout
+    implementation deps.google.materialDesign
+
+    implementation deps.google.dagger.dagger
+    kapt deps.google.dagger.daggerCompiler
+    kapt deps.google.dagger.daggerAndroidProcessor
+
+    implementation deps.thirdParty.lottie
+
+    testImplementation deps.thirdParty.json
+    testImplementation deps.google.jetpack.test.junit
+    testImplementation deps.google.jetpack.test.mockK
+    testImplementation deps.google.jetpack.test.rules
+    testImplementation deps.google.jetpack.test.runner
+    testImplementation deps.google.jetpack.test.extJUnit
+    testImplementation deps.google.jetpack.test.archCoreTest
+
+    implementation fileTree(include: '*.jar', dir: 'libs')
+}

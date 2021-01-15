@@ -1,0 +1,14 @@
+rootProject.name = "SkyScanner"
+include ':MyFlights',
+
+ ':core',
+ ':api-common',
+ ':image-loader',
+ ':network-common',
+ ':resources-common',
+
+ ':empty-view',
+ ':error-view',
+
+ ':skyscanner-data',
+ ':skyscanner-domain'

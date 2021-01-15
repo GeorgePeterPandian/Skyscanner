@@ -1,0 +1,54 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/icon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="@dimen/vertical_keyline_secondary"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="lottie_thinking_animation.json"
+            app:lottie_loop="true"
+            app:lottie_speed="1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title"
+            style="@style/TextAppearance.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/vertical_keyline_primary"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="3"
+            android:text="@string/tools_text_empty_title"
+            android:textSize="@dimen/spacing_24_sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/icon" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/subtitle"
+            style="@style/TextAppearance.Body1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/vertical_keyline_primary"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:paddingBottom="@dimen/spacing_8"
+            android:text="@string/tools_text_empty_subtitle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

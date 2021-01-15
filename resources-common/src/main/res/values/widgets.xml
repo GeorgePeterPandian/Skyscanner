@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--CardView-->
+    <style name="CardAppearance.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_margin">@dimen/vertical_keyline_primary</item>
+    </style>
+
+    <!--TextInputLayout.OutlinedBox-->
+    <style name="TextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_margin">@dimen/spacing_8</item>
+    </style>
+
+    <!--Button-->
+    <style name="ButtonAppearance.MaterialButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:layout_margin">@dimen/vertical_keyline_primary</item>
+    </style>
+</resources>

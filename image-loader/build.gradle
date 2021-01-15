@@ -1,0 +1,6 @@
+apply from: '../scripts/android_library_module.gradle'
+
+dependencies {
+    implementation project(':network-common')
+    implementation deps.thirdParty.externalContributors.picasso2OkHttp3Downloader
+}

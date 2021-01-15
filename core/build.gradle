@@ -1,0 +1,15 @@
+apply from: '../scripts/android_library_module.gradle'
+
+dependencies {
+    kapt deps.google.dagger.daggerCompiler
+    kapt deps.google.dagger.daggerAndroidProcessor
+
+    implementation deps.google.dagger.dagger
+
+    implementation deps.google.jetpack.foundation.appCompat
+    implementation deps.google.jetpack.architecture.lifecycle.extensions
+
+    implementation deps.thirdParty.reactive.rxJava
+    implementation deps.thirdParty.reactive.rxAndroid
+
+}

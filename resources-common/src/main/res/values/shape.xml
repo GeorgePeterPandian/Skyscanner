@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Shape-->
+    <style name="ShapeAppearance.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">@dimen/mifli_small_component_corner_cut</item>
+    </style>
+
+    <style name="ShapeAppearance.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/mifli_medium_component_corner_radius</item>
+    </style>
+
+    <dimen name="mifli_small_component_corner_cut">10%</dimen>
+    <dimen name="mifli_medium_component_corner_radius">10%</dimen>
+
+</resources>

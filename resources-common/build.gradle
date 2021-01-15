@@ -1,0 +1,6 @@
+apply from: '../scripts/android_library_module.gradle'
+
+dependencies {
+    implementation deps.thirdParty.lottie
+    implementation deps.google.materialDesign
+}
